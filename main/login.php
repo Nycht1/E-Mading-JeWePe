@@ -22,9 +22,9 @@
   <body>
 
     <?php
-      require("db_config.php ");
+      require("../db_config.php ");
 
-      require("login_function.php");
+      require("../functions/login_function.php");
     ?>
       
     <!-- Navbar -->

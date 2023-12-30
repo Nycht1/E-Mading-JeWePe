@@ -1,5 +1,5 @@
 <?php
-  require("db_config.php ");
+  require("../db_config.php ");
 
   // Login form POST method
   if ($_SERVER["REQUEST_METHOD"] == "POST") {

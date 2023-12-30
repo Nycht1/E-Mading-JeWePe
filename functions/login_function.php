@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $result = $conn->query($query);
 
   if ($result->num_rows == 1) {
-    header('Location: ./admin/dashboard.php'); exit;
+    header('Location: ../admin/dashboard.php'); exit;
     // Redirect ke dashboarad page
   } else {
     echo "Login failed. Please check your username and password.";
