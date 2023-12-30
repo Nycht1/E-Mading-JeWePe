@@ -21,11 +21,6 @@
   </head>
   <body>
 
-    <?php
-      require("../db_config.php ");
-
-      require("../functions/login_function.php");
-    ?>
       
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
@@ -67,28 +62,28 @@
         $state_notifikasi = isset($_GET['pesan']);
           if ($state_notifikasi){
             if($state_notifikasi == 'gagal'){
-              echo "<i class='text-danger'> Login Gagal! Username atau Password tidak sesuai."
+              echo "<i class='text-danger'> Login Gagal! Username atau Password tidak sesuai.";
             }
 
             else if($state_notifikasi == 'empty'){
-              echo "<i class='text-danger'> Username atau Password tidak boleh kosong."
+              echo "<i class='text-danger'> Username atau Password tidak boleh kosong.";
             }
 
             else if($state_notifikasi == 'not_found'){
-              echo "<i class='text-danger'> Login Gagal! Username tidak tersedia."
+              echo "<i class='text-danger'> Login Gagal! Username tidak tersedia.";
             }
 
             else if($state_notifikasi == 'not_login'){
-              echo "<i class='text-danger'> Login terlebih dahulu untuk mengakses dashboard admin"
+              echo "<i class='text-danger'> Login terlebih dahulu untuk mengakses dashboard admin";
             }
 
             else if($state_notifikasi == 'logout'){
-              echo "<i class='text-danger'> Berhasil terlogout."
+              echo "<i class='text-danger'> Berhasil terlogout.";
             }
           }
         ?>
       </p>
-      <form class="w-50" method="POST", action="login_function.php">
+      <form class="w-50" method="POST", action="../functions/login_function.php">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
           <input

@@ -1,14 +1,19 @@
 <?php
-include('../db_config.php')
-$db = new database()
+require("../db_config.php");
+$db = new Database();
 session_start();
 
 if (isset($_SESSION['email']) || isset($_SESSION['id_account'])) {
-  header('Location: ../admin/dashboard.php') 
+  header('Location: ../admin/dashboard.php');
+
+  var_dump("Ok session");
+  die;
 }
 
 else {
-  if isset($_POST['submit']){
+  var_dump("no session");
+  die;
+  if (isset($_POST['submit'])){
     $enteredEmail = stripslashes($_POST["email"]);
     $enteredPassword = stripslashes($_POST["password"]);
 
@@ -30,16 +35,16 @@ else {
         echo "Email Tersedia";
       }
       else {
-        header("location:../main/login.php?pesan=not_found")
+        header("location:../main/login.php?pesan=not_found");
       }
     }
     else {
-      header("location:../main/login.php?pesan=empty")
+      header("location:../main/login.php?pesan=empty");
     }
   }
 
   else{
-    header("location:../main/login.php?pesan=empty")
+    header("location:../main/login.php?pesan=empty");
   }
 }
 ?>
