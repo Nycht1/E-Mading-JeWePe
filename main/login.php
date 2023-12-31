@@ -55,33 +55,29 @@
     </nav>
 
     <div
-      class="container d-flex justify-content-center align-items-center vh-100"
+      class="container d-flex flex-column justify-content-center align-items-center vh-100"
     >
       <p>
-        <?php 
-        $state_notifikasi = isset($_GET['pesan']);
-          if ($state_notifikasi){
+      <?php 
+        $state_notifikasi = isset($_GET['pesan']) ? $_GET['pesan'] : null;
+
+        if ($state_notifikasi){
             if($state_notifikasi == 'gagal'){
-              echo "<i class='text-danger'> Login Gagal! Username atau Password tidak sesuai.";
+                echo "<i class='text-danger'> Login Gagal! Username atau Password tidak sesuai.";
+            } elseif($state_notifikasi == 'empty'){
+                echo "<i class='text-danger'> Username atau Password tidak boleh kosong.";
+            } elseif($state_notifikasi == 'not_found'){
+                echo "<i class='text-danger'> Login Gagal! Username tidak tersedia.";
+            } elseif($state_notifikasi == 'not_login'){
+                echo "<i class='text-danger'> Login terlebih dahulu untuk mengakses dashboard admin";
+            } elseif($state_notifikasi == 'logout'){
+                echo "<i class='text-danger'> Berhasil terlogout.";
+            } else {
+                // Handling for other cases or unknown states
+                echo "<i class='text-danger'> State not recognized.";
             }
-
-            else if($state_notifikasi == 'empty'){
-              echo "<i class='text-danger'> Username atau Password tidak boleh kosong.";
-            }
-
-            else if($state_notifikasi == 'not_found'){
-              echo "<i class='text-danger'> Login Gagal! Username tidak tersedia.";
-            }
-
-            else if($state_notifikasi == 'not_login'){
-              echo "<i class='text-danger'> Login terlebih dahulu untuk mengakses dashboard admin";
-            }
-
-            else if($state_notifikasi == 'logout'){
-              echo "<i class='text-danger'> Berhasil terlogout.";
-            }
-          }
-        ?>
+        }
+      ?>
       </p>
       <form class="w-50" method="POST", action="../functions/login_function.php">
         <div class="form-group">

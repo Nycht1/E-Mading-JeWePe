@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['email']) and !isset($_SESSION['id_account'])) {
+  header('Location: ../main/login.php?pesan=not_login');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,6 +70,13 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-history"></i>
                   <p>logs</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="logout.php" class="nav-link">
+                  <i class="nav-icon fas fa-history"></i>
+                  <p>logout</p>
                 </a>
               </li>
             </ul>
