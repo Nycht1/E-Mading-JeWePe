@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if (!isset($_SESSION['email']) and !isset($_SESSION['id_account'])) {
-  header('Location: ../main/login.php?pesan=not_login');
-}
-
-?>
-
 <!-- ============================================================== -->
 <!-- Topbar header - style you can find in pages.scss -->
 <!-- ============================================================== -->
@@ -55,19 +46,13 @@ if (!isset($_SESSION['email']) and !isset($_SESSION['id_account'])) {
       <!-- toggle and nav items -->
       <!-- ============================================================== -->
       <ul class="navbar-nav float-start me-auto">
-        <li class="nav-item d-none d-lg-block">
-          <a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)"
-            data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a>
-        </li>
         <!-- ============================================================== -->
-        <!-- Search -->
+        <!-- create new -->
         <!-- ============================================================== -->
-        <li class="nav-item search-box">
-          <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-magnify fs-4"></i></a>
-          <form class="app-search position-absolute">
-            <input type="text" class="form-control" placeholder="Search &amp; enter" />
-            <a class="srh-btn"><i class="mdi mdi-window-close"></i></a>
-          </form>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="" role="button" aria-expanded="false">
+            <span class="d-none d-md-block">Daftar Artikel</span>
+          </a>
         </li>
       </ul>
       <!-- ============================================================== -->
@@ -77,24 +62,19 @@ if (!isset($_SESSION['email']) and !isset($_SESSION['id_account'])) {
         <!-- ============================================================== -->
         <!-- User profile and search -->
         <!-- ============================================================== -->
-        <li class="nav-item dropdown">
+        <li class="nav-item">
           <a class="
-                    nav-link
-                    dropdown-toggle
-                    text-muted
-                    waves-effect waves-dark
-                    pro-pic
-                  " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31" />
+              nav-link
+              dropdown-toggle
+              text-muted
+              waves-effect waves-dark
+              pro-pic
+            " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fas fa-lock"></i>
           </a>
-          <ul class="dropdown-menu dropdown-menu-end user-dd animated" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="javascript:void(0)">
-              <i class="mdi mdi-account me-1 ms-1"></i> My Profile</a>
-            <a class="dropdown-item" href="logout.php"><i class="fa fa-power-off me-1 ms-1"></i> Logout</a>
-          </ul>
         </li>
         <!-- ============================================================== -->
-        <!-- End Of User profile and search -->
+        <!-- User profile and search -->
         <!-- ============================================================== -->
       </ul>
     </div>
