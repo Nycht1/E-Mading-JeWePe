@@ -30,5 +30,12 @@ class Database
     return $data;
   }
 
+  public function get_all_data_account()
+  {
+    $data = mysqli_query($this->connection, "SELECT * FROM db_account");
+
+    return $data;
+  }
+
 }
 ?>

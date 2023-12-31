@@ -2,13 +2,8 @@
 require("../db_config.php");
 $db = new Database();
 
-$query = $db->get_all_data_article();
+$query = $db->get_all_data_account();
 
-if ($query) {
-  $rows = mysqli_num_rows($query);
-} else {
-  $rows = 0;
-}
 
 // if ($rows > 0) {
 
@@ -228,33 +223,35 @@ if ($query) {
                     <thead>
                       <tr>
                         <th>ID</th>
-                        <th>Title</th>
-                        <th>Status</th>
-                        <th>View</th>
-                        <th>Category</th>
-                        <th>Uploader</th>
-                        <th>Content Summary</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Description</th>
+                        <th>Profile Picture</th>
+                        <th>Created At</th>
+                        <th>Updated At</th>
                         <th>Last Updated</th>
-                        <th>Action</th>
+
                       </tr>
                     </thead>
                     <?php
                     while ($row = mysqli_fetch_array($query)) {
                       // var_dump(strlen($row['content']) > 30);
                       // var_dump(substr($row['content'], 0, 30) . '...');
-                      $contentSumm = strlen($row['content']) > 10 ? substr($row['content'], 0, 10) . '...' : $row['content'];
+                      $passSumm = strlen($row['password']) > 10 ? substr($row['password'], 0, 10) . '...' : $row['password'];
+                      $descriptionSumm = strlen($row['description']) > 10 ? substr($row['description'], 0, 10) . '...' : $row['description'];
                       echo "<tr>";
-                      echo "<td>" . $row['id_article'] . "</td>";
-                      echo "<td>" . $row['title'] . "</td>";
-                      echo "<td>" . $row['publish'] . "</td>";
-                      echo "<td>" . $row['view'] . "</td>";
-                      echo "<td>" . $row['category'] . "</td>";
-                      echo "<td>" . $row['uploader'] . "</td>";
-                      echo "<td>" . $contentSumm . "</td>";
+                      echo "<td>" . $row['id_account'] . "</td>";
+                      echo "<td>" . $row['name'] . "</td>";
+                      echo "<td>" . $row['email'] . "</td>";
+                      echo "<td>" . $passSumm . "</td>";
+                      echo "<td>" . $descriptionSumm . "</td>";
+                      echo "<td>" . $row['acc_img'] . "</td>";
+                      echo "<td>" . $row['created_at'] . "</td>";
                       echo "<td>" . $row['last_updated'] . "</td>";
                       echo "<td>
-                                    <a href='edit.php?id=" . $row['id_article'] . "'><i class='fas fa-edit'></i></a> |
-                                    <a href='delete.php?id=" . $row['id_article'] . "'><i class='fas fa-trash'></i></a>
+                                    <a href='edit.php?id=" . $row['id_account'] . "'><i class='fas fa-edit'></i></a> |
+                                    <a href='delete.php?id=" . $row['id_account'] . "'><i class='fas fa-trash'></i></a>
                                   </td>";
                       echo "</tr>";
                     }

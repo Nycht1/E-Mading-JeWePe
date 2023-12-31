@@ -4,11 +4,6 @@ $db = new Database();
 
 $query = $db->get_all_data_article();
 
-if ($query) {
-  $rows = mysqli_num_rows($query);
-} else {
-  $rows = 0;
-}
 
 // if ($rows > 0) {
 
