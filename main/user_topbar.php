@@ -50,7 +50,7 @@
         <!-- create new -->
         <!-- ============================================================== -->
         <li class="nav-item">
-          <a class="nav-link" href="daftar_artikel.php" id="" role="button" aria-expanded="false">
+          <a class="nav-link" href="index.php" id="" role="button" aria-expanded="false">
             <span class="d-none d-md-block">Daftar Artikel</span>
           </a>
         </li>
@@ -65,11 +65,10 @@
         <li class="nav-item">
           <a class="
               nav-link
-              dropdown-toggle
               text-muted
               waves-effect waves-dark
               pro-pic
-            " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            " href="login.php" role="button">
             <i class="fas fa-lock"></i>
           </a>
         </li>

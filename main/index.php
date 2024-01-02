@@ -66,13 +66,15 @@ $data_artikel = $db->get_all_published_article();
       <div class="row">
         <?php
         while ($row = mysqli_fetch_array($data_artikel)) {
+          $contentLimit = 450;
+          $limitedContent = (strlen($row['content']) > $contentLimit) ? substr($row['content'], 0, $contentLimit) . '...' : $row['content'];
           echo '<div class="col">
         <a href="detail.php?id_article=' . $row['id_article'] . '" style="text-decoration: none; color: inherit;">
-            <div class="card h-100" style="width: 100%;">
+            <div class="card h-100" style="width: 100%; display: flex; flex-direction: column;">
                 <img class="card-img-top" src="' . $row['article_img'] . '" alt="Card image cap" style="width: 100%; height: 50%; object-fit: cover;" />
-                <div class="card-body">
+                <div class="card-body" style="flex: 1; padding: 10px;">
                     <h5 class="card-title" style="font-size: 1.25rem; font-weight: bold; margin-bottom: 10px;">' . $row['title'] . '</h5>
-                    <p class="card-text" style="font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">' . ($row['content']) . '</p>
+                    <p class="card-text" style="font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1;">' . ($limitedContent) . '</p>
                 </div>
                 <div class="card-footer">
                     <small class="text-muted">' . $row['last_updated'] . '</small>
@@ -82,6 +84,7 @@ $data_artikel = $db->get_all_published_article();
     </div>';
         }
         ?>
+
 
       </div>
     </div>
