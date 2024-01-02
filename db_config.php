@@ -44,10 +44,12 @@ class Database
     return $data;
   }
 
-  public function get_article_data_by_id($article_id)
+  public function get_article_data_by_id($id_article)
   {
-    $data = mysqli_query($this->connection, "SELECT * FROM db_article WHERE id_article='$article_id'");
-    return mysqli_fetch_assoc($data);
+    $query = "SELECT * FROM db_article WHERE id_article = $id_article";
+    $result = mysqli_query($this->connection, $query);
+
+    return $result;
   }
 
   public function add_article($title, $publish, $category, $article_img, $content, $id_account)

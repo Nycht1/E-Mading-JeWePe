@@ -1,3 +1,11 @@
+<?php
+include("../db_config.php");
+$db = new Database();
+$id_article = $_GET["id_article"];
+$data_artikel = $db->get_article_data_by_id($id_article);
+$row = mysqli_fetch_array($data_artikel);
+?>
+
 <!DOCTYPE html>
 <html dir="ltr">
 
@@ -9,9 +17,9 @@
   <meta name="keywords"
     content="wrappixel, admin dashboard, html css dashboard, web dashboard, bootstrap 5 admin, bootstrap 5, css3 dashboard, bootstrap 5 dashboard, Matrix lite admin bootstrap 5 dashboard, frontend, responsive bootstrap 5 admin template, Matrix admin lite design, Matrix admin lite dashboard bootstrap 5 dashboard template" />
   <meta name="description"
-    content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework" />
+    content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inspired from Bootstrap Framework" />
   <meta name="robots" content="noindex,nofollow" />
-  <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+  <title>Detail Artikel</title>
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png" />
   <!-- Custom CSS -->
@@ -42,35 +50,46 @@
       </div>
     </div>
     <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">Detail Artikel</h4>
+        </div>
+      </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
     <!-- Daftra Artikel -->
     <!-- ============================================================== -->
-    <div class="
-          auth-wrapper
-          d-flex
-          no-block
-          justify-content-center
-          align-items-center
-          bg-dark
-        ">
-      <div class="col-md">
-        <div class="card mb-3">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img class="card-img card-img-top" src="../assets/images/logo-icon.png" alt="Card image" />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a wider card with supporting text below as a natural lead-in to additional content.
-                  This content is a little bit longer.
+    <div class="container">
+      <!-- Hero Image -->
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-12">
+            <img class="img-fluid" src="<?php echo $row['article_img']; ?>" alt="Hero Image"
+              style="width: 100%; height: 300px; object-fit: cover;">
+            <div class="mt-3">
+              <h2 class="h4">
+                <?php echo $row['title']; ?>
+              </h2>
+              <p>
+                <?php echo ($row['content']); ?>
+              </p>
+              <div class="text-muted small">
+                <p class="mb-0">
+                  <?php echo $row['last_updated']; ?>
                 </p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
   </div>
   <!-- ============================================================== -->
@@ -84,17 +103,6 @@
   <!-- ============================================================== -->
   <script>
     $(".preloader").fadeOut();
-    // ==============================================================
-    // Login and Recover Password
-    // ==============================================================
-    $("#to-recover").on("click", function () {
-      $("#loginform").slideUp();
-      $("#recoverform").fadeIn();
-    });
-    $("#to-login").click(function () {
-      $("#recoverform").hide();
-      $("#loginform").fadeIn();
-    });
   </script>
 </body>
 
