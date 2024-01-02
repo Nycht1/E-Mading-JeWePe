@@ -19,10 +19,6 @@
           <a class="sidebar-link waves-effect waves-dark sidebar-link" href="manage_account.php"
             aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Manage Accounts</span></a>
         </li>
-        <li class="sidebar-item">
-          <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i
-              class="mdi mdi-border-inside"></i><span class="hide-menu">Logs</span></a>
-        </li>
       </ul>
     </nav>
     <!-- End Sidebar navigation -->
