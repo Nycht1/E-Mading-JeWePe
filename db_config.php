@@ -37,6 +37,13 @@ class Database
     return $data;
   }
 
+  public function get_all_published_article()
+  {
+    $data = mysqli_query($this->connection, "SELECT * FROM db_article WHERE publish ='1'");
+
+    return $data;
+  }
+
   public function get_article_data_by_id($article_id)
   {
     $data = mysqli_query($this->connection, "SELECT * FROM db_article WHERE id_article='$article_id'");

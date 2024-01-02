@@ -7,7 +7,7 @@
       <!-- ============================================================== -->
       <!-- Logo -->
       <!-- ============================================================== -->
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="login.php">
         <!-- Logo icon -->
         <b class="logo-icon ps-2">
           <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -50,7 +50,7 @@
         <!-- create new -->
         <!-- ============================================================== -->
         <li class="nav-item">
-          <a class="nav-link" href="#" id="" role="button" aria-expanded="false">
+          <a class="nav-link" href="daftar_artikel.php" id="" role="button" aria-expanded="false">
             <span class="d-none d-md-block">Daftar Artikel</span>
           </a>
         </li>
