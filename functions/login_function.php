@@ -26,13 +26,14 @@ if (isset($_SESSION['email']) || isset($_SESSION['id_account'])) {
       }
 
       if ($rows > 0) {
-        $getPassword = mysqli_fetch_assoc($query)['password'];
+        $getData = $query->fetch_assoc();
+        $getPassword = $getData['password'];
         // var_dump($enteredPassword, $getPassword); var_dump(password_verify($enteredPassword, $getPassword));
         // die;
 
         if (password_verify($enteredPassword, $getPassword)) {
           $_SESSION['email'] = $enteredEmail;
-          $_SESSION['id_account'] = mysqli_fetch_array($query)['id_account'];
+          $_SESSION['id_account'] = $getData['id_account'];
 
           header("location:../admin/index.php");
         } else {

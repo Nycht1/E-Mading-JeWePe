@@ -72,7 +72,7 @@ $query = $db->get_all_data_account();
     <!-- ============================================================== -->
     <div class="page-wrapper">
       <!-- ============================================================== -->
-      <!-- Bread crumb and right sidebar toggle -->
+      <!-- Bread crumb -->
       <!-- ============================================================== -->
       <div class="page-breadcrumb">
         <div class="row">
@@ -82,7 +82,7 @@ $query = $db->get_all_data_account();
         </div>
       </div>
       <!-- ============================================================== -->
-      <!-- End Bread crumb and right sidebar toggle -->
+      <!-- End Bread crumb -->
       <!-- ============================================================== -->
       <!-- ============================================================== -->
       <!-- Container fluid  -->
@@ -112,28 +112,29 @@ $query = $db->get_all_data_account();
 
                       </tr>
                     </thead>
-                    <?php
-                    while ($row = mysqli_fetch_array($query)) {
-                      // var_dump(strlen($row['content']) > 30);
-                      // var_dump(substr($row['content'], 0, 30) . '...');
-                      $passSumm = strlen($row['password']) > 10 ? substr($row['password'], 0, 10) . '...' : $row['password'];
-                      $descriptionSumm = strlen($row['description']) > 10 ? substr($row['description'], 0, 10) . '...' : $row['description'];
-                      echo "<tr>";
-                      echo "<td>" . $row['id_account'] . "</td>";
-                      echo "<td>" . $row['name'] . "</td>";
-                      echo "<td>" . $row['email'] . "</td>";
-                      echo "<td>" . $passSumm . "</td>";
-                      echo "<td>" . $descriptionSumm . "</td>";
-                      echo "<td>" . $row['acc_img'] . "</td>";
-                      echo "<td>" . $row['created_at'] . "</td>";
-                      echo "<td>" . $row['last_updated'] . "</td>";
-                      echo "<td>
+                    <tbody>
+                      <?php
+                      while ($row = mysqli_fetch_array($query)) {
+                        // var_dump(strlen($row['content']) > 30);
+                        // var_dump(substr($row['content'], 0, 30) . '...');
+                        $passSumm = strlen($row['password']) > 10 ? substr($row['password'], 0, 10) . '...' : $row['password'];
+                        $descriptionSumm = strlen($row['description']) > 10 ? substr($row['description'], 0, 10) . '...' : $row['description'];
+                        echo "<tr>";
+                        echo "<td>" . $row['id_account'] . "</td>";
+                        echo "<td>" . $row['name'] . "</td>";
+                        echo "<td>" . $row['email'] . "</td>";
+                        echo "<td>" . $passSumm . "</td>";
+                        echo "<td>" . $descriptionSumm . "</td>";
+                        echo "<td>" . $row['acc_img'] . "</td>";
+                        echo "<td>" . $row['created_at'] . "</td>";
+                        echo "<td>" . $row['last_updated'] . "</td>";
+                        echo "<td>
                                     <a href='edit.php?id=" . $row['id_account'] . "'><i class='fas fa-edit'></i></a> |
                                     <a href='delete.php?id=" . $row['id_account'] . "'><i class='fas fa-trash'></i></a>
                                   </td>";
-                      echo "</tr>";
-                    }
-                    ?>
+                        echo "</tr>";
+                      }
+                      ?>
                     </tbody>
                   </table>
                 </div>
@@ -142,14 +143,7 @@ $query = $db->get_all_data_account();
           </div>
         </div>
         <!-- ============================================================== -->
-        <!-- End PAge Content -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Right sidebar -->
-        <!-- ============================================================== -->
-        <!-- .right-sidebar -->
-        <!-- ============================================================== -->
-        <!-- End Right sidebar -->
+        <!-- End Page Content -->
         <!-- ============================================================== -->
       </div>
       <!-- ============================================================== -->

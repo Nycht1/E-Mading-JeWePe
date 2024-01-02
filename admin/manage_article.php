@@ -96,8 +96,12 @@ $query = $db->get_all_data_article();
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">List of articles</h5>
+                <a type="button" href="add_article.php" class="btn btn-primary btn-sm float-end">
+                  Add new article
+                </a>
                 <div class="table-responsive">
                   <table id="zero_config" class="table table-striped table-bordered">
+
                     <thead>
                       <tr>
                         <th>ID</th>
@@ -111,27 +115,33 @@ $query = $db->get_all_data_article();
                         <th>Action</th>
                       </tr>
                     </thead>
-                    <?php
-                    while ($row = mysqli_fetch_array($query)) {
-                      // var_dump(strlen($row['content']) > 30);
-                      // var_dump(substr($row['content'], 0, 30) . '...');
-                      $contentSumm = strlen($row['content']) > 10 ? substr($row['content'], 0, 10) . '...' : $row['content'];
-                      echo "<tr>";
-                      echo "<td>" . $row['id_article'] . "</td>";
-                      echo "<td>" . $row['title'] . "</td>";
-                      echo "<td>" . $row['publish'] . "</td>";
-                      echo "<td>" . $row['view'] . "</td>";
-                      echo "<td>" . $row['category'] . "</td>";
-                      echo "<td>" . $row['uploader'] . "</td>";
-                      echo "<td>" . $contentSumm . "</td>";
-                      echo "<td>" . $row['last_updated'] . "</td>";
-                      echo "<td>
-                                    <a href='edit.php?id=" . $row['id_article'] . "'><i class='fas fa-edit'></i></a> |
-                                    <a href='delete.php?id=" . $row['id_article'] . "'><i class='fas fa-trash'></i></a>
-                                  </td>";
-                      echo "</tr>";
-                    }
-                    ?>
+                    <tbody>
+                      <?php
+                      while ($row = mysqli_fetch_array($query)) {
+                        // var_dump(strlen($row['content']) > 30);
+                        // var_dump(substr($row['content'], 0, 30) . '...');
+                        $contentSumm = strlen($row['content']) > 10 ? substr($row['content'], 0, 10) . '...' : $row['content'];
+                        if ($row['publish'] == 0) {
+                          $publish_conv = 'Draft';
+                        } else {
+                          $publish_conv = 'Publish';
+                        }
+                        echo "<tr>";
+                        echo "<td>" . $row['id_article'] . "</td>";
+                        echo "<td>" . $row['title'] . "</td>";
+                        echo "<td>" . $publish_conv . "</td>";
+                        echo "<td>" . $row['view'] . "</td>";
+                        echo "<td>" . $row['category'] . "</td>";
+                        echo "<td>" . $row['uploader'] . "</td>";
+                        echo "<td>" . $contentSumm . "</td>";
+                        echo "<td>" . $row['last_updated'] . "</td>";
+                        echo "<td>
+                                <a href='edit_article.php?action=update&id_article=" . $row['id_article'] . "'><i class='fas fa-edit'></i></a> |
+                                <a href='action.php?action=delete&id_article=" . $row['id_article'] . "'><i class='fas fa-trash'></i></a>
+                              </td>";
+                        echo "</tr>";
+                      }
+                      ?>
                     </tbody>
                   </table>
                 </div>

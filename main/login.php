@@ -53,6 +53,8 @@
         <div id="loginform">
           <div class="text-center pt-3 pb-3">
             <span class="db"><img src="../assets/images/logo.png" alt="logo" /></span>
+          </div>
+          <div class="text-center pt-3 pb-3">
             <?php
             $state_notifikasi = isset($_GET['pesan']) ? $_GET['pesan'] : null;
 
