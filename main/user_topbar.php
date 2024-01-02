@@ -16,10 +16,12 @@
         </b>
         <!--End Logo icon -->
         <!-- Logo text -->
-        <span class="logo-text ms-2">
+        <span class="logo-text ms-2 d-flex align-items-center">
           <!-- dark Logo text -->
-          <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo" />
+          <img src="../assets/images/logo-text.png" alt="homepage" class="light-logo img-fluid"
+            style="width: 100%; height: auto;" />
         </span>
+
         <!-- Logo icon -->
         <!-- <b class="logo-icon"> -->
         <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->

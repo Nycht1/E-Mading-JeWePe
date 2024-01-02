@@ -93,8 +93,8 @@
                     <span class="input-group-text bg-warning text-white h-100" id="basic-addon2"><i
                         class="mdi mdi-lock fs-4"></i></span>
                   </div>
-                  <input type="text" class="form-control form-control-lg" placeholder="Password" aria-label="Password"
-                    name="password" aria-describedby="basic-addon1" required="" />
+                  <input type="password" class="form-control form-control-lg" placeholder="Password"
+                    aria-label="Password" name="password" aria-describedby="basic-addon1" required="" />
                 </div>
               </div>
             </div>
